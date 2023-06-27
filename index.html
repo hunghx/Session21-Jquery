@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            text-align: center;
+            line-height: 200px;
+        }
+        button{
+            padding: 10px 20px;
+            color: aliceblue;
+            background-color: blue;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- các phẩn tử html -->
+    <div id="box" class="box"><span>Box</span></div>
+    <button id="btn-hide" type="button">Hide</button>
+    <button id="btn-show" type="button">Show</button>
+
+    <form>
+        <label for="input">Name</label>
+        <input type="text" id="input"/>
+        <button type="submit" id="submit">Submit</button>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+       
+        // // jQuery code
+            $(document).ready(function(){
+                // khối code sau khi trang html được load
+            // alert("Loaded")
+
+            $("#btn-hide").on("mouseover", function(){
+                $("#box").hide(2000,function name(params) {
+                    console.log("thuc hien callback");
+                }); // ẩn phần tử đang được chọn
+            })
+            $("#btn-show").on("click", function(){
+                $("#box").delay(2000).animate({width:'500px'},3000); // ẩn phần tử đang được chọn
+            })
+            console.log($("#btn-hide"));
+            })
+
+        $(window).on('load', function(){
+            // khối code sau khi trang html được tải xong
+        //    $("#input").keydown(function(){
+        //     $("#box").css("background","white","color","black")
+        //    })
+
+        //    $("#submit").keypress(function(){
+        //     $("#box").css("background","white","color","black")
+        //    })
+
+
+        // sự kiện trên form 
+        $("#input").focus(function(e) {
+            console.log(e.target.value);
+        })
+
+        $("form").submit(function(e) {
+            e.preventDefault();
+            console.log(" value = "+ $("#input").val());
+        })
+        })
+
+        // cú pháp tổng quát
+        // thay đổi nội dung văn bản
+
+        //  let value = $("#box").text()
+        // console.log( $("#box").html())
+        // $("#box").html("<div>1</div>")
+
+        // xóa phần tử
+
+        // $("#box").empty();
+        // $("#box").remove();
+        $("#box").addClass("box1 box2");
+        // $("#box").removeClass("box2");
+        // $("#box").toggleClass("box2");
+       console.log($("#box").css("background-color"));
+
+
+        
+    </script>
+</body>
+</html>
